@@ -21,3 +21,8 @@ export async function getUser () {
     const { token, ...user} = await apiFetch("profile");
     return user;
 }
+
+export async function deleteUser () {
+    const { token, ...user} = await apiFetch("profile", { method: "DELETE" });
+    sessionStorage.removeItem(tokenKey, token);
+}
