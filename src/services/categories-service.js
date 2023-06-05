@@ -1,5 +1,4 @@
 import apiFetch from "./api-fetch.js";
-import { tokenKey } from "./config.js";
 
 export async function getCategories() {
     return await apiFetch("categories");
