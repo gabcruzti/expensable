@@ -1,7 +1,7 @@
 const BASE_URI = "https://expensable-api.herokuapp.com/";
 const tokenKey = "expensable_token"
 
-async function login (credentials = { email, password }) {
+export async function login (credentials = { email, password }) {
     const response = await fetch(`${BASE_URI}/login`, {
         method: "POST",
         headers: {
@@ -21,4 +21,31 @@ async function login (credentials = { email, password }) {
     return data;
 }
 
-export { login };
+export async function logout () {
+    const token = sessionStorage.getItem(tokenKey);
+
+    const response = await fetch(`${BASE_URI}/logout`, {
+        method: "DELETE",
+        headers: {
+            Authorization: `Token token=${token}`,
+        },
+    });
+
+    let data;
+
+    try {
+        
+        data = await response.json();
+    } catch (error) {
+        data = response.statusText;
+    }
+
+    if(!response.ok) {
+        throw new Error(data.errors);
+    }
+
+    sessionStorage.removeItem(tokenKey);
+    return data;
+
+}
+

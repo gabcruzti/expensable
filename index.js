@@ -1,4 +1,4 @@
-import { login } from "./src/service/sessions-service.js"
+import { login, logout } from "./src/service/sessions-service.js"
 
 const credentials = {
 	"email": "test3@mail.com",
@@ -7,8 +7,11 @@ const credentials = {
 
 async function test() {
   try {
-    const user = await login(credentials);
-    console.log(user);
+    // const user = await login(credentials);
+    // console.log(user);
+
+    const data = await logout();
+    console.log(data);
   } catch (error) {
     console.log(error);
   }
