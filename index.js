@@ -1,20 +1,24 @@
-import { login, logout } from "./src/services/sessions-service.js"
+import DOMHandler from "./src/services/dom-handler.js";
+import LoginPage from "./src/pages/login-pages.js";
+import HomePage from "./src/pages/home-page.js";
 
-const credentials = {
-	"email": "test3@mail.com",
-	"password": "123456",
-};
+import { getUser } from "./src/services/user-service.js"
+import { tokenKey } from "./src/services/config.js";
 
-async function test() {
+async function init() {
+  // Lógica de inicialización
+
   try {
-    const user = await login(credentials);
-    console.log(user);
-
-    // const data = await logout();
-    // console.log(data);
+    const token = sessionStorage.getItem(tokenKey);
+    if(!token) throw new Error();
+    
+    const user = await getUser();   
+    DOMHandler.load(HomePage);
   } catch (error) {
-    console.log(error);
+    sessionStorage.removeItem(tokenKey);
+    DOMHandler.load(LoginPage);
   }
+  
 }
 
-test();
+init()
