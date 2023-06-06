@@ -1,9 +1,9 @@
-import DOMHandler from "./src/services/dom-handler.js";
+import DOMHandler from "./dom-handler.js";
 import LoginPage from "./src/pages/login-pages.js";
 import HomePage from "./src/pages/home-page.js";
 
 import { getUser } from "./src/services/user-service.js"
-import { tokenKey } from "./src/services/config.js";
+import { tokenKey } from "./config.js";
 
 async function init() {
   // Lógica de inicialización
@@ -21,4 +21,4 @@ async function init() {
   
 }
 
-init()
+init();

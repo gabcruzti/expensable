@@ -1,5 +1,5 @@
 import apiFetch from "./api-fetch.js";
-import { tokenKey } from "./config.js";
+import { tokenKey } from "../../config.js";
 
 export async function createUser (
     newUser = { email, password, first_name, last_name, phone }) {
