@@ -1,6 +1,12 @@
+import STORE from "../store.js"
+
+function render () {
+    return `<h1>Home Page</h1>`;
+}
+
 const HomePage = {
     toString(){
-        return `<h1>Home Page</h1>`;
+        return render;
     },
     addListeners() {},
 }

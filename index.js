@@ -4,6 +4,7 @@ import HomePage from "./src/pages/home-page.js";
 
 import { getUser } from "./src/services/user-service.js"
 import { tokenKey } from "./config.js";
+import STORE from "./src/store.js";
 
 async function init() {
   // Lógica de inicialización
@@ -12,11 +13,14 @@ async function init() {
     const token = sessionStorage.getItem(tokenKey);
     if(!token) throw new Error();
     
-    const user = await getUser();   
+    const user = await getUser();
+    STORE.user = user;
+    await STORE.fetchCategories();   
     DOMHandler.load(HomePage);
   } catch (error) {
     sessionStorage.removeItem(tokenKey);
     DOMHandler.load(LoginPage);
+    console.log(error);
   }
   
 }

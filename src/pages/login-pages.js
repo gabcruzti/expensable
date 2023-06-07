@@ -64,7 +64,7 @@ function listenSubmitForm() {
 
       const user = await login(credentials);
       STORE.user = user;
-      //await STORE.fetchCategories();
+      await STORE.fetchCategories();
 
       DOMHandler.load(HomePage);
     } catch (error) {
