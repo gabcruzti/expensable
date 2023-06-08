@@ -11,11 +11,13 @@ async function init() {
 
   try {
     const token = sessionStorage.getItem(tokenKey);
+    
     if(!token) throw new Error();
     
     const user = await getUser();
     STORE.user = user;
-    await STORE.fetchCategories();   
+    await STORE.fetchCategories();  
+     
     DOMHandler.load(HomePage);
   } catch (error) {
     sessionStorage.removeItem(tokenKey);
@@ -23,6 +25,6 @@ async function init() {
     console.log(error);
   }
   
-}
+};
 
 init();
