@@ -2,7 +2,7 @@ import STORE from "../store.js";
 import DOMHandler from "../dom-handler.js";
 import ExpensesIncome from "../components/expenses-income.js";
 import Profile from "../components/profile.js";
-import LoginPage from "./login-page.js";
+import LoginPage from "./login-pages.js";
 import { logout } from "../services/sessions-service.js";
 
 function render() {

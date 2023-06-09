@@ -1,18 +1,18 @@
 import apiFetch from "./api-fetch.js";
 
 export async function getCategories() {
-    return await apiFetch("categories");
+  return await apiFetch("categories");
 }
 
 export async function createCategories(
-    newData = {
+  newData = {
     name,
     transaction_type,
-}
+  }
 ) {
-    return await apiFetch("categories", { body: newData});
+  return await apiFetch("categories", { body: newData });
 }
 
 export async function deleteCategory(id) {
-    return await apiFetch(`categories/${id}`, {method: "DELETE"});
+  return await apiFetch(`categories/${id}`, { method: "DELETE" });
 }

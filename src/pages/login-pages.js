@@ -1,4 +1,4 @@
-import DOMHandler from "../../dom-handler.js";
+import DOMHandler from "../dom-handler.js";
 import HomePage from "./home-page.js";
 import STORE from "../store.js";
 import { login } from "../services/sessions-service.js";
